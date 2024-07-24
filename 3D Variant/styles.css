@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+
+    display: flex;
+    justify-content: flex-start; /* Align to the right */
+    align-items: center;
+    color: rgb(158, 224, 255);
+
+    background: url("./planet.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@keyframes moving-border {
+    0% {
+        border-color: rgba(10, 145, 255, 0);
+    }
+    25% {
+        border-color: rgba(10, 145, 255, 0.3);
+    }
+    50% {
+        border-color: rgba(10, 145, 255, 0.6);
+    }
+    75% {
+        border-color: rgba(10, 145, 255, 0.9);
+    }
+    100% {
+        border-color: rgba(10, 145, 255, 1);
+    }
+}
+
+form {
+    background: rgba(250, 146, 50, 0.192);
+    backdrop-filter: blur(2px);
+    border-radius: 2rem;
+    box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    margin-left: 10rem; /* Add some margin to keep form away from edge */
+    transform: perspective(1000px) rotateY(10deg); /* 3D effect */
+
+    position: relative;
+    animation: moving-border 5s linear infinite;
+    border: 2px solid transparent; /* Initial border to avoid layout shift */
+    border-image: linear-gradient(90deg, rgba(10, 145, 255, 0) 0%, rgba(10, 145, 255, 1) 50%, rgba(10, 145, 255, 0) 100%);
+    border-image-slice: 1;
+}
+
+form h1 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 35px;
+    font-weight: bolder;
+    color: #3e023f;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow */
+}
+
+label {
+    font-size: 18px;
+    color: #3e023f;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Text shadow */
+}
+
+input::placeholder {
+    color: rgba(26, 25, 25, 0.7); /* Darker placeholder text */
+}
+
+form div div {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    line-height: 30px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #3e023f;
+}
+
+form i {
+    margin-right: 2rem;
+    font-size: 15px;
+    color: #3e023f;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Text shadow */
+}
+
+input {
+    all: unset;
+    font-size: 15px;
+    color: #3e023f;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Text shadow */
+}
+
+input, button {
+    height: 50px;
+    width: 300px;
+    margin-top: .3rem;
+}
+
+button {
+    background: linear-gradient(145deg, #004da5, #3e023f);
+    color: #53ddff;
+    font-weight: bold;
+    font-size: 20px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4rem;
+    cursor: pointer;
+    transition: .1s ease-in-out;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 550px) {
+    input, button {
+        width: 100%;
+    }
+}
